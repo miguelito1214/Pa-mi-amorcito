@@ -1,0 +1,120 @@
+body {
+    background-color: #ffcccc; /* Color de fondo de la página */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+  }
+  
+  .container {
+    position: relative;
+  }
+  
+  .click-instruction {
+    position: absolute;
+    top: 50px; /* Distancia desde la parte superior */
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 24px; /* Tamaño de la fuente */
+    color: #666666;
+    z-index: 2; /* Aseguramos que la instrucción esté por encima del sobre */
+  }
+  
+  .envelope {
+    width: 300px; /* Ajustamos el tamaño del sobre */
+    height: 200px; /* Ajustamos el tamaño del sobre */
+    position: relative;
+    cursor: pointer;
+    perspective: 1000px; /* Agregamos perspectiva para la animación */
+    z-index: 1; /* Aseguramos que el sobre esté detrás de la carta */
+    border-top-left-radius: 20px; /* Bordes redondeados en la parte superior izquierda del sobre */
+    border-top-right-radius: 20px; /* Bordes redondeados en la parte superior derecha del sobre */
+    overflow: hidden; /* Ocultamos el contenido que se desborde del sobre */
+    background-color: #ffffff; /* Color de fondo del sobre */
+    border: 2px solid #000; /* Añadimos borde al sobre */
+  }
+  
+  .top, .bottom {
+    width: 100%;
+    height: 50%;
+    background-color: #ffffff;
+    position: absolute;
+    top: 0;
+  }
+  
+  .top {
+    border-top-left-radius: 20px; /* Ajustamos los bordes redondeados */
+    border-top-right-radius: 20px; /* Ajustamos los bordes redondeados */
+    border-bottom: 2px solid #000; /* Añadimos borde inferior */
+  }
+  
+  .bottom {
+    border-bottom-left-radius: 20px; /* Ajustamos los bordes redondeados */
+    border-bottom-right-radius: 20px; /* Ajustamos los bordes redondeados */
+    top: 50%;
+    border-top: 2px solid #000; /* Añadimos borde superior */
+  }
+  
+  .flap {
+    width: 0;
+    height: 0;
+    border-left: 150px solid transparent; /* Ajustamos el tamaño de la solapa */
+    border-right: 150px solid transparent; /* Ajustamos el tamaño de la solapa */
+    border-top: 200px solid #ffffff; /* Ajustamos el tamaño de la solapa */
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    transform-origin: bottom; /* Configuramos el origen de la rotación */
+    transition: transform 0.5s ease; /* Añadimos transición para la animación */
+  }
+  
+  .seal {
+    width: 50px; /* Ajustamos el tamaño del sello */
+    height: 50px; /* Ajustamos el tamaño del sello */
+    background-color: #ff6666; /* Color del sello */
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+  }
+  
+  .letter {
+    background-color: #ffffcc; /* Color de fondo de la carta */
+    width: 500px; /* Ajustamos el tamaño de la carta */
+    height: 400px; /* Ajustamos el tamaño de la carta */
+    border: 2px solid #ff6666; /* Color del borde de la carta */
+    padding: 20px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px; /* Agregamos bordes redondeados */
+    overflow-y: auto; /* Agregamos desplazamiento vertical para el contenido largo */
+    position: absolute; /* Cambiamos a posición absoluta */
+    top: 50%; /* Posicionamos la carta en el centro vertical */
+    left: 50%; /* Posicionamos la carta en el centro horizontal */
+    transform: translate(-50%, -50%) rotateY(0deg); /* Centramos la carta y la inicializamos cerrada */
+    transition: transform 0.5s ease; /* Añadimos transición para la animación */
+    z-index: 2; /* Aseguramos que la carta esté por encima del sobre */
+    backface-visibility: hidden; /* Evitamos el efecto espejo */
+  }
+  
+  .letter-content {
+    max-width: 100%;
+    text-align: center;
+  }
+  
+  .letter p {
+    margin: 5px 0;
+  }
+  
+  .closed {
+    transform: translate(-50%, -50%) rotateY(180deg); /* Cerramos la carta */
+  }
+  
+  .card-container {
+    display: none;
+  }
+  
